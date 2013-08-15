@@ -1,0 +1,54 @@
+= libinputmapper =
+
+libinputmapper is a simple library to assemble input event translation tables.
+These tables allow simple conversions of input events. It operates on the
+"struct input_event" linux event objects and converts ->code arguments according
+to the internal tables.
+
+The purpose of these translation tables is to fixup broken device keymaps that
+we cannot change in the kernel for backwards compatibility reasons. Furthermore,
+these tables allow to fix cross-device incompatibilities by remapping input into
+a known common format.
+
+All kinds of translation tables are supported. The main tables are provided via
+udev's hwdb and provide known static fixup tables for broken devices. However,
+library users can easily create dynamic tables on-the-fly.
+
+Website:
+  http://dvdhrm.github.io/libinputmapper
+
+== Requirements ==
+
+  * libudev: The hwdb interface of udev is used to store and retrieve any device
+             information. Required version: udev >= 174
+
+== Download ==
+
+Released tarballs can be found at:
+  http://dvdhrm.github.io/libinputmapper
+
+== Install ==
+
+  To compile libinputmapper, run the standard autotools commands:
+    $ test -f ./configure || NOCONFIGURE=1 ./autogen.sh
+    $ ./configure
+    $ make
+    $ make install
+  To compile the test applications, run:
+    $ make check
+
+== Documentation ==
+
+  For documentation, please see:
+    http://dvdhrm.github.io/libinputmapper
+
+== License ==
+
+  This software is licensed under the terms of an MIT-like license. Please see
+  ./COPYING for further information.
+
+== Contact ==
+
+  This software is maintained by:
+    David Herrmann <dh.herrmann@gmail.com>
+  If you have any questions, do not hesitate to contact one of the maintainers.
