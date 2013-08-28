@@ -38,13 +38,7 @@ LT_INIT
 # Dependencies
 #
 
-PKG_CHECK_MODULES([UDEV], [libudev >= 172],
-                  [have_udev=yes], [have_udev=no])
-AC_SUBST(UDEV_CFLAGS)
-AC_SUBST(UDEV_LIBS)
-if test ! "x$have_udev" = "xyes" ; then
-        AC_ERROR([libudev >= 172 is required for libinputmapper])
-fi
+PKG_CHECK_MODULES([UDEV], [libudev >= 172])
 
 # TODO: check for linux/input.h
 
