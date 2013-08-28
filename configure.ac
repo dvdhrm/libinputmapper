@@ -49,8 +49,8 @@ if test "x$DOXYGEN" = "x"; then
 fi
 AM_CONDITIONAL([HAVE_DOXYGEN], [test -n "$DOXYGEN"])
 
-
-# TODO: check for linux/input.h
+AC_CHECK_HEADER([linux/input.h], [],
+                [AC_MSG_ERROR([linux/input.h required but not found])])
 
 #
 # Makefile vars
