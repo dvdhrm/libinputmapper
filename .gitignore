@@ -21,3 +21,4 @@ m4/
 stamp-h1
 docs/libinputmapper.doxygen
 docs/html
+*.tar.xz
