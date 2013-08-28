@@ -20,7 +20,6 @@ AM_MAKEFLAGS = --no-print-directory
 
 .DELETE_ON_ERROR:
 
-include_HEADERS =
 EXTRA_DIST = \
 	README \
 	COPYING \
@@ -29,12 +28,6 @@ EXTRA_DIST = \
 	src/libinputmapper.sym
 CLEANFILES =
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA =
-TPHONY =
-
-check_PROGRAMS =
-lib_LTLIBRARIES =
-noinst_LTLIBRARIES =
 
 #
 # Default CFlags
@@ -69,9 +62,9 @@ AM_LDFLAGS = \
 # Main library build instructions
 #
 
-lib_LTLIBRARIES += libinputmapper.la
-include_HEADERS += src/libinputmapper.h
-pkgconfig_DATA += src/libinputmapper.pc
+lib_LTLIBRARIES = libinputmapper.la
+include_HEADERS = src/libinputmapper.h
+pkgconfig_DATA = src/libinputmapper.pc
 
 libinputmapper_la_SOURCES = \
 	src/libinputmapper.h \
@@ -104,19 +97,13 @@ doxygen: docs/libinputmapper.doxygen
 clean-local:
 	rm -rf docs/html
 
-TPHONY += doxygen
+.PHONY: doxygen
 
 doc_src = $(shell find docs/html -name "*" -printf "docs/html/%P\n" 2>/dev/null)
 EXTRA_DIST += $(doc_src) docs/libinputmapper.doxygen
 dist_noinst_DATA = docs/libinputmapper.doxygen.in
 
 endif
-
-#
-# Phony targets
-#
-
-.PHONY: $(TPHONY)
 
 #
 # Empty .SECONDARY target causes alle intermediate files to be treated as
