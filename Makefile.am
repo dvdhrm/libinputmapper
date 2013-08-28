@@ -85,8 +85,9 @@ libinputmapper_la_SOURCES = \
 
 libinputmapper_la_CPPFLAGS = \
 	$(AM_CPPFLAGS) \
-	$(UDEV_CFLAGS)
-libinputmapper_la_LIBADD = $(UDEV_LIBS)
+	$(UDEV_CFLAGS) \
+	$(LIBUDEV_CFLAGS)
+libinputmapper_la_LIBADD = $(UDEV_LIBS) $(LIBUDEV_LIBS)
 EXTRA_libinputmapper_la_DEPENDENCIES = $(top_srcdir)/docs/libinputmapper.sym
 libinputmapper_la_LDFLAGS = \
 	$(AM_LDFLAGS) \

@@ -38,7 +38,8 @@ LT_INIT
 # Dependencies
 #
 
-PKG_CHECK_MODULES([UDEV], [libudev >= 172])
+PKG_CHECK_MODULES([LIBUDEV], [libudev >= 172])
+PKG_CHECK_MODULES([UDEV], [udev >= 172])
 
 # TODO: check for linux/input.h
 
