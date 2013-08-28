@@ -19,3 +19,5 @@ src/libinputmapper.pc
 libtool
 m4/
 stamp-h1
+docs/libinputmapper.doxygen
+docs/html

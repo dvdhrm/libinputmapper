@@ -95,6 +95,28 @@ libinputmapper_la_LDFLAGS = \
 	-Wl,--version-script="$(top_srcdir)/src/libinputmapper.sym"
 
 #
+# documentation
+#
+
+if HAVE_DOXYGEN
+
+all-local: doxygen
+
+doxygen: docs/libinputmapper.doxygen
+	doxygen $<
+
+clean-local:
+	rm -rf docs/html
+
+TPHONY += doxygen
+
+doc_src = $(shell find docs/html -name "*" -printf "docs/html/%P\n" 2>/dev/null)
+EXTRA_DIST += $(doc_src) docs/libinputmapper.doxygen
+dist_noinst_DATA = docs/libinputmapper.doxygen.in
+
+endif
+
+#
 # Phony targets
 #
 

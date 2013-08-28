@@ -21,6 +21,8 @@ AC_CANONICAL_HOST
 AM_INIT_AUTOMAKE([foreign 1.11 subdir-objects dist-xz no-dist-gzip tar-pax -Wall -Werror -Wno-portability])
 AM_SILENT_RULES([yes])
 
+AC_SUBST(PACKAGE_DESCRIPTION, ["evdev input event mapping library"])
+
 AC_PROG_CC
 AC_PROG_CC_C99
 AM_PROG_CC_C_O
@@ -41,6 +43,13 @@ LT_INIT
 PKG_CHECK_MODULES([LIBUDEV], [libudev >= 172])
 PKG_CHECK_MODULES([UDEV], [udev >= 172])
 
+AC_PATH_PROG(DOXYGEN, [doxygen])
+if test "x$DOXYGEN" = "x"; then
+    AC_MSG_WARN([doxygen not found - required for documentation])
+fi
+AM_CONDITIONAL([HAVE_DOXYGEN], [test -n "$DOXYGEN"])
+
+
 # TODO: check for linux/input.h
 
 #
@@ -49,6 +58,7 @@ PKG_CHECK_MODULES([UDEV], [udev >= 172])
 #
 
 AC_CONFIG_FILES([Makefile
+                 docs/libinputmapper.doxygen
                  src/libinputmapper.pc])
 AC_OUTPUT
 

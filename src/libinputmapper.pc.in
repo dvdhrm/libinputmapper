@@ -4,7 +4,7 @@ libdir=@libdir@
 includedir=@includedir@
 
 Name: libinputmapper
-Description: Input event-mapping library
+Description: @PACKAGE_DESCRIPTION@
 URL: @PACKAGE_URL@
 Version: @PACKAGE_VERSION@
 Libs: -L${libdir} -linputmapper
