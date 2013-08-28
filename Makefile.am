@@ -20,8 +20,6 @@ AM_MAKEFLAGS = --no-print-directory
 AUTOMAKE_OPTIONS = color-tests
 AM_DISTCHECK_CONFIGURE_FLAGS =
 
-SUBDIRS = .
-
 .DELETE_ON_ERROR:
 
 include_HEADERS =
