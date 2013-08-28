@@ -49,7 +49,7 @@ PKG_CHECK_MODULES([UDEV], [udev >= 172])
 #
 
 AC_CONFIG_FILES([Makefile
-                 docs/libinputmapper.pc])
+                 src/libinputmapper.pc])
 AC_OUTPUT
 
 #

@@ -29,8 +29,8 @@ EXTRA_DIST = \
 	README \
 	COPYING \
 	NEWS \
-	docs/libinputmapper.pc.in \
-	docs/libinputmapper.sym
+	src/libinputmapper.pc.in \
+	src/libinputmapper.sym
 CLEANFILES =
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA =
@@ -75,7 +75,7 @@ AM_LDFLAGS = \
 
 lib_LTLIBRARIES += libinputmapper.la
 include_HEADERS += src/libinputmapper.h
-pkgconfig_DATA += docs/libinputmapper.pc
+pkgconfig_DATA += src/libinputmapper.pc
 
 libinputmapper_la_SOURCES = \
 	src/libinputmapper.h \
@@ -88,11 +88,11 @@ libinputmapper_la_CPPFLAGS = \
 	$(UDEV_CFLAGS) \
 	$(LIBUDEV_CFLAGS)
 libinputmapper_la_LIBADD = $(UDEV_LIBS) $(LIBUDEV_LIBS)
-EXTRA_libinputmapper_la_DEPENDENCIES = $(top_srcdir)/docs/libinputmapper.sym
+EXTRA_libinputmapper_la_DEPENDENCIES = $(top_srcdir)/src/libinputmapper.sym
 libinputmapper_la_LDFLAGS = \
 	$(AM_LDFLAGS) \
 	-version-info $(LIBINPUTMAPPER_CURRENT):$(LIBINPUTMAPPER_REVISION):$(LIBINPUTMAPPER_AGE) \
-	-Wl,--version-script="$(top_srcdir)/docs/libinputmapper.sym"
+	-Wl,--version-script="$(top_srcdir)/src/libinputmapper.sym"
 
 #
 # Phony targets

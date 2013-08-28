@@ -15,7 +15,7 @@ config.h.in
 config.log
 config.status
 configure
-docs/libinputmapper.pc
+src/libinputmapper.pc
 libtool
 m4/
 stamp-h1
